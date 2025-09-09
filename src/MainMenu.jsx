@@ -17,7 +17,6 @@ export default function MainMenu() {
         const newIngredient = formData.get("Ingredient")
         setIngredientList(prevIngredientList => [...prevIngredientList, newIngredient])
     }*/
-
     function addIngredient(formData) {
         const newIngredient = formData.get("ingredient")
         setIngredientList(prevIngredientList => [...prevIngredientList, newIngredient])
