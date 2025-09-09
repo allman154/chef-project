@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  margin: 0;
+  background: #fafaf8;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  background-color: white;
+  height: 89px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+header>img {
+  width: 47.5px;
+  height: auto;
+}
+
+header>h1 {
+  font-weight: 400;
+  font-size: 2.1rem;
+}
+
+main {
+  padding: 35px 30px;
+}
+
+.add-ingredient-form {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.add-ingredient-form>button {
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #2e2e2e;
+  padding: 0px 16px;
+  color: #fafaf8;
+  transition: background-color 0.5s ease;
+}
+
+.add-ingredient-form>button:hover {
+  background-color: #3a3a3a;
+}
+
+.add-ingredient-form>input {
+  border-radius: 4px;
+  border: 1px solid #d1d5db;
+  font-family: Inter, sans-serif;
+  font-size: 1em;
+  padding: 10px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  flex-grow: 1;
+  min-width: 150px;
+  max-width: 800px;
+}
+
+.get-recipe-section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.get-recipe-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  font-family: Inter, sans-serif;
+  font-size: 1em;
+  padding: 10px 20px;
+  background: #ebebeb;
+}
+
+.get-recipe-button {
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #ff6666;
+  padding: 16px;
+  color: #fafaf8;
+  transition: background-color 0.5s ease;
+}
+
+.get-recipe-button:hover {
+  background-color: #ff3333;
+}
+
+.cc-recipe-section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cc-recipe-container {
+  margin-top: 30px;
+  border-radius: 10px;
+  font-family: Inter, sans-serif;
+  font-size: 1em;
+  padding: 10px 20px;
+  border: 1px solid #ebebeb;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
