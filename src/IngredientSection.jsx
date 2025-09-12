@@ -1,26 +1,23 @@
 export default function IngredientSection(props) {
 
-    function addIngredient(formData) {
-        const newIngredient = formData.get("ingredient")
-        setIngredientList(prevIngredientList => [...prevIngredientList, newIngredient])
-    }
-    
+    const ingredientsListItem = props.ingredients.map(ingredient => <li>{ingredient}</li>)
+
     return (
         <>
-            {props.ingredientListLength > 0 && <section className="get-recipe-section">
+            <section className="get-recipe-section">
                 <h2>Ingredients on hand:</h2>
                 <ul className="ingredients-list" aria-live="polite">
-                    {props.ingredientsListItem}
+                    {ingredientsListItem}
                 </ul>
-                {props.ingredientListLength > 3 && <div className="get-recipe-container">
+                {props.ingredients.length > 3 && <div className="get-recipe-container">
                     <div>
                         <h3>Ready for Recipe?</h3>
                         <p>Generate a recipe from your list of ingredients.</p>
                     </div>
                     <button className="get-recipe-button"
-                        onClick={props.handleClick}>Get a recipe</button>
+                        onClick={props.toggleRecipeShown}>Get a recipe</button>
                 </div>}
-            </section>}
+            </section>
         </>
     )
 }

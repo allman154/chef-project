@@ -1,25 +1,14 @@
 import React from "react"
-import Recipe from "./Recipe"
+import ClaudeRecipe from "./ClaudeRecipe"
+import IngredientSection from "./IngredientSection"
 export default function MainMenu() {
-    const [recipeShown, setRecipeShown] = React.useState(false)
-    const ingredients = []
-    const [ingredientList, setIngredientList] = React.useState([...ingredients])
-    const ingredientsListItem = ingredientList.map(ingredient =>
-        <li>{ingredient}</li>)
 
-    //THIS WOULD BE IF WE USED THE ONSUBMIT ON ThE FORM INSTEAD OF ACTION - 
-    // ACTION ALLOWS FOR A MORE CLEAN (JSF REMINICENT) WAY OF HANDLING THIS. 
-    /*function handleFormSubmit(event) {
-        //prevent the page from refreshing - this would also change the URL to include ?ingredientname
-        event.preventDefault()
-        //Grab the value that is submitted on the FORM from the EVENT passed in
-        const formData = new FormData(event.currentTarget)
-        const newIngredient = formData.get("Ingredient")
-        setIngredientList(prevIngredientList => [...prevIngredientList, newIngredient])
-    }*/
+    const [recipeShown, setRecipeShown] = React.useState(false)
+    const [ingredients, setIngredients] = React.useState([])
+
     function addIngredient(formData) {
         const newIngredient = formData.get("ingredient")
-        setIngredientList(prevIngredientList => [...prevIngredientList, newIngredient])
+        setIngredients(prevIngredients => [...prevIngredients, newIngredient])
     }
 
     function toggleRecipeShown() {
@@ -36,21 +25,11 @@ export default function MainMenu() {
                         name="ingredient" />
                     <button>Add Ingredient</button>
                 </form>
-                {ingredientList.length > 0 && <section className="get-recipe-section">
-                    <h2>Ingredients on hand:</h2>
-                    <ul className="ingredients-list" aria-live="polite">
-                        {ingredientsListItem}
-                    </ul>
-                    {ingredientList.length > 3 && <div className="get-recipe-container">
-                        <div>
-                            <h3>Ready for Recipe?</h3>
-                            <p>Generate a recipe from your list of ingredients.</p>
-                        </div>
-                        <button className="get-recipe-button"
-                            onClick={toggleRecipeShown}>Get a recipe</button>
-                    </div>}
-                </section>}
-                {recipeShown && <Recipe />}
+                {ingredients.length > 0 &&
+                    <IngredientSection
+                        ingredients={ingredients}
+                        toggleRecipeShown={toggleRecipeShown} />}
+                {recipeShown && <ClaudeRecipe />}
             </main >
         </>
     )
