@@ -1,9 +1,11 @@
 import React from "react"
 import ClaudeRecipe from "./ClaudeRecipe"
 import IngredientSection from "./IngredientSection"
+import { getRecipeFromMistral } from "./chefAi"
 export default function MainMenu() {
 
-    const [recipeShown, setRecipeShown] = React.useState(false)
+    console.log("HF key present:", !!import.meta.env.VITE_HF_API_KEY);
+    const [recipe, setRecipe] = React.useState("")
     const [ingredients, setIngredients] = React.useState([])
 
     function addIngredient(formData) {
@@ -11,8 +13,10 @@ export default function MainMenu() {
         setIngredients(prevIngredients => [...prevIngredients, newIngredient])
     }
 
-    function toggleRecipeShown() {
-        setRecipeShown(prevShown => !prevShown)
+    /* since the API function is async, we will make the function ASYNC, and AWAIT the response */
+    async function getRecipe() {
+        const recipeMarkDown = await getRecipeFromMistral(ingredients)
+        setRecipe(recipeMarkDown)
     }
 
     return (
@@ -28,8 +32,8 @@ export default function MainMenu() {
                 {ingredients.length > 0 &&
                     <IngredientSection
                         ingredients={ingredients}
-                        toggleRecipeShown={toggleRecipeShown} />}
-                {recipeShown && <ClaudeRecipe />}
+                        getRecipe={getRecipe} />}
+                {recipe && <ClaudeRecipe recipe={recipe} />}
             </main >
         </>
     )

@@ -15,7 +15,7 @@ export default function IngredientSection(props) {
                         <p>Generate a recipe from your list of ingredients.</p>
                     </div>
                     <button className="get-recipe-button"
-                        onClick={props.toggleRecipeShown}>Get a recipe</button>
+                        onClick={props.getRecipe}>Get a recipe</button>
                 </div>}
             </section>
         </>
