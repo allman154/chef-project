@@ -1,4 +1,4 @@
-# ChefClaude AI Recipe Generator (React + Vite)
+# ChefClaude AI Recipe Generator - Work in Progress
 
 A modern React project that recreates the core functionality and interface of the ChefClaude AI Recipe Generator. 
 This application takes user provided ingredients and returns a detailed recipe using the ChefClaude API.
